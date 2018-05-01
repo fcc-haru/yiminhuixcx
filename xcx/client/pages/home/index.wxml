@@ -1,0 +1,33 @@
+<!--pages/home/index.wxml-->
+<view class="container">
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='ptList'>
+      <block wx:for="{{productList}}">
+        <view class='productItem'>
+          <view class='left'>
+            <image src='{{item.url}}'></image>
+          </view>
+          <view class='middle'>
+            <text>{{item.name}}</text>
+            <text class='light decr'>{{item.decr}}</text>
+            <text class='price light'>单价 ¥{{item.price}}</text>
+          </view>
+          <view class='right'>
+            <image class="{{plusStatus}}" src='/images/addition_fill.png' bindtap="plus"></image>
+            <input type="number" value='{{num}}'></input>
+            <image class="{{minustatus}}" src='/images/minus_fill.png' bindtap="minus"></image>
+          </view>
+        </view>
+      </block>
+  </view>
+  <view class='addToCar'>
+    <text>加入购物车</text>
+  </view> 
+</view>

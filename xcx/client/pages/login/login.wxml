@@ -1,0 +1,17 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class='userInfo'>
+    <text class="userMotto">欢迎登陆yiminhui</text>  
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='item'>
+      <text>手机号：</text>
+      <input type='number' placeholder='请输入手机号'></input>
+    </view>
+    <view class='item'>
+      <text class='letter'>密</text><text >码：</text>
+      <input type='password' placeholder='请输入密码'></input>
+    </view>
+    <button formType="submit" bindtap="goToHome">提交</button>
+  </form>
+</view>

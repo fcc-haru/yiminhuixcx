@@ -1,0 +1,26 @@
+/* pages/login/login.wxss */
+.userInfo{
+  padding: 50px 0;
+}
+input{
+  display: inline-block;
+}
+.item{
+  display: flex;
+  flex-direction:  row;
+  align-items: center;
+  padding: 15px 0;
+  line-height: 1;
+}
+input{
+  border:1px solid #ccc;
+  border-radius: 4px;
+  padding-left: 4px;
+}
+.letter{
+  letter-spacing: 1em;
+}
+
+button{
+  margin-top:50px;
+}
