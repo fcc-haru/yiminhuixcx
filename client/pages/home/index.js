@@ -13,12 +13,15 @@ Page({
     autoplay: false,
     interval: 5000,
     duration: 1000,
+    totalPrice: 0, // 订单总价，初始为0
+    hasProduct:true,// 是否添加了产品，初始为true
     productList:[
       {
         url:"/images/timg.jpeg",
         name:"米粉",
         decr:"好吃的米粉",
         price:"30.00",
+        num:0,
         totalNumber:"100"
       },
       {
@@ -26,6 +29,7 @@ Page({
         name: "米粉",
         decr: "好吃的米粉",
         price: "30.00",
+        num: 0,
         totalNumber: "100"
       },
       {
@@ -33,6 +37,7 @@ Page({
         name: "米粉",
         decr: "好吃的米粉",
         price: "30.00",
+        num: 0,
         totalNumber: "100"
       },
       {
@@ -40,39 +45,87 @@ Page({
         name: "米粉",
         decr: "好吃的米粉",
         price: "30.00",
+        num: 0,
         totalNumber: "100"
       }
       
     ]
   },
-  minus:function(){
-    var num =this.data.num;
-    if(num>1){
+  /**
+ * 绑定减数量事件
+ */
+  minus:function(e){
+    const index = e.currentTarget.dataset.index;
+    let productList = this.data.productList;
+    let num = productList[index].num;
+    if(num>0){
       num--;
     }
+    productList[index].num = num;
     var minusStatus =num<=1?"disabled":"normal";
     this.setData({
-      num:num,
+      productList: productList,
       minusStatus:minusStatus
     })
+    this.getTotalPrice();
+    this.getProducts();
   },
+   /**
+ * 绑定加数量事件
+ */
   plus:function(e){
-    console.log(e);
-    var num = this.data.num;
+    const index = e.currentTarget.dataset.index;
+    let productList = this.data.productList;
+    let num = productList[index].num;
     num++;
+    productList[index].num = num;
     var plusStatus = num > 10 ? 'disabled' : 'normal';
     this.setData({
-      num: num,
+      productList: productList,
       // minusStatus: minusStatus,
       plusStatus: plusStatus
     });
+    this.getTotalPrice();
+    this.getProducts();
   },
-
+  /**
+ * 计算总价
+ */
+  getTotalPrice() {
+    let productList = this.data.productList;                  // 获取产品列表
+    let total = 0;
+    for (let i = 0; i < productList.length; i++) {         // 循环列表得到每个数据                   
+      total += productList[i].num * productList[i].price;   // 所有价格加起来
+    }
+    this.setData({                               
+      productList: productList,
+      totalPrice: total.toFixed(2)
+    });
+  },
+  /**
+* 获取产品下单数量
+*/
+  getProducts() {
+    let productList = this.data.productList;  
+    let products = 0;           
+    for (let i = 0; i < productList.length; i++) {                          
+       products +=productList[i].num; 
+    }
+    if(products>0){
+      this.setData({
+        hasProduct: false,
+      });
+    }else {
+      this.setData({
+        hasProduct: true,
+      });
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getProducts();
   },
 
   /**
