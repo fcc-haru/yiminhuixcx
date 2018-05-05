@@ -20,14 +20,15 @@
             <text class='price light'>单价 ¥{{item.price}}</text>
           </view>
           <view class='right'>
-            <image class="{{plusStatus}}" src='/images/addition_fill.png' bindtap="plus"></image>
-            <input type="number" value='{{num}}'></input>
-            <image class="{{minustatus}}" src='/images/minus_fill.png' bindtap="minus"></image>
+            <image class="{{plusStatus}}" src='/images/addition_fill.png' bindtap="plus" data-index="{{index}}"></image>
+            <input type="number" value='{{item.num}}'></input>
+            <image class="{{minustatus}}" src='/images/minus_fill.png' bindtap="minus" data-index="{{index}}"></image>
           </view>
         </view>
       </block>
   </view>
-  <view class='addToCar'>
-    <text>加入购物车</text>
+  <view class='addToCar' hidden="{{hasProduct}}">
+    <text>¥{{totalPrice}}</text>
+    <text>确认订单</text>
   </view> 
 </view>
