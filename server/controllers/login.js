@@ -1,5 +1,6 @@
+const { mysql } = require('../qcloud.js')
 // 登录授权接口
-// module.exports = async (ctx, next) => {
+module.exports = async (ctx, next) => {
     // 通过 Koa 中间件进行登录之后
     // 登录信息会被存储到 ctx.state.$wxInfo
     // 具体查看：
@@ -7,8 +8,6 @@
     //     ctx.state.data = ctx.state.$wxInfo.userinfo
     //     ctx.state.data['time'] = Math.floor(Date.now() / 1000)
     // }
-  // ctx.state.data = { msg: 'Hello World' }
-// }
-module.exports = function (ctx, next) {
-  ctx.state.data = { msg: 'Hello World' }
+  var data = mysql("user").where({ user: '13238098327', pwd: '666666'});
+  ctx.state.data = data
 }

@@ -9,7 +9,9 @@ const config = require('./config')
 app.use(response)
 
 // 解析请求体
-app.use(bodyParser())
+app.use(bodyParser({
+  enableTypes: ['json', 'form', 'text']
+}))
 
 // 引入路由分发
 const router = require('./routes')

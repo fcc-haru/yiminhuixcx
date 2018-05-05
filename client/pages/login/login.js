@@ -14,7 +14,7 @@ Page({
       header: {
         'content-type': "application/x-www-form-urlencoded" // 默认值
       },
-      method: "POST",  
+      method: "GET",  
       success: function (res) {
         console.log(res.data)
       }
