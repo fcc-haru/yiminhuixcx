@@ -57,6 +57,7 @@ Page({
     })
   },
   plus:function(e){
+    console.log(e);
     var num = this.data.num;
     num++;
     var plusStatus = num > 10 ? 'disabled' : 'normal';

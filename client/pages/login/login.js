@@ -1,3 +1,4 @@
+var config = require('../../config');
 Page({
   data: {
     // loginBtnBgBgColor:"#0099ff",
@@ -5,24 +6,24 @@ Page({
     disabled:false,
     userInfo: {}
   },
-  goToHome: function (e) {
-    wx.switchTab({
-      url: '/pages/home/index',
-    });
+  formSubmit:function(e){
+    var that = this;
+    wx.request({
+      url: config.service.loginUrl,
+      data: e.detail.value,
+      header: {
+        'content-type': "application/x-www-form-urlencoded" // 默认值
+      },
+      method: "POST",  
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
   },
-  // submit:function(){
-  //   var that = this;
-  //   wx.request({
-  //     url: 'http://115.159.46.183/demo',
-  //     data: e.detail.value,
-  //     header: {
-  //       'content-type': "application/x-www-form-urlencoded" // 默认值
-  //     },
-  //     method: "POST",  
-  //     success: function (res) {
-  //       console.log(res.data)
-  //     }
-  //   })
+  // goToHome: function (e) {
+  //   wx.switchTab({
+  //     url: '/pages/home/index',
+  //   });
   // },
   onLoad: function () {
     var that = this
