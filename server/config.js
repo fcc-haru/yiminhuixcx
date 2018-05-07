@@ -20,7 +20,7 @@ const CONF = {
       host: '115.159.46.183',
         port: 3306,
         user: 'root',
-        db: 'yi_min_hui',
+        db: 'cAuth',
         pass: 'Xu3689510!',
         char: 'utf8mb4'
     },

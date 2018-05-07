@@ -89,6 +89,14 @@ input{
   height: 100rpx;
   line-height: 100rpx;
   text-align: center;
-  background: #bbb;
-  color:red;
+  background: #333333;
+  color:#fff;
+  padding:0 40rpx 0 50rpx;
+  box-sizing:border-box;
+}
+.addToCar text:first-child {
+  float:left;
+}
+.addToCar text:last-child {
+  float:right;
 }

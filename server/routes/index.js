@@ -12,7 +12,9 @@ const { auth: { authorizationMiddleware, validationMiddleware } } = require('../
 
 // --- 登录与授权 Demo --- //
 // 登录接口
-router.get('/login', authorizationMiddleware, controllers.login)
+// router.get('/login', authorizationMiddleware, controllers.login)
+
+router.get('/login', controllers.login)
 // 用户信息接口（可以用来验证登录态）
 router.get('/user', validationMiddleware, controllers.user)
 
@@ -31,5 +33,4 @@ router.post('/tunnel', controllers.tunnel.post)
 router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
-router.post('/demo', controllers.demo)
 module.exports = router
