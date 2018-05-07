@@ -28,7 +28,7 @@ const CONF = {
     cos: {
         /**
          * 地区简称
-         * @查看 https://cloud.tencent.com/document/product/436/6224
+         * @see https://www.qcloud.com/document/product/436/6224
          */
         region: 'ap-guangzhou',
         // Bucket 名称
