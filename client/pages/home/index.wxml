@@ -12,7 +12,7 @@
       <block wx:for="{{productList}}" wx:key="{{}}">
         <view class='productItem'>
           <view class='left'>
-            <image src='{{item.url}}'></image>
+            <image src='{{item.imageUrl}}'></image>
           </view>
           <view class='middle'>
             <text>{{item.productName}}{{item.unitProduct}}斤装</text>
