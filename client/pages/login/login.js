@@ -8,23 +8,29 @@ Page({
   },
   formSubmit:function(e){
     var that = this;
-    wx.request({
+    var formData = e.detail.value;
+    var options = {
       url: config.service.loginUrl,
-      data: e.detail.value,
-      header: {
-        'content-type': "application/x-www-form-urlencoded" // 默认值
+      data: formData,
+      method: "POST",
+      success(result) {
+        if(result.data.msg.length>0){
+          wx.switchTab({
+            url: '/pages/home/index',
+          });
+        }
+        console.log(result.data)
+        that.setData({
+          requestResult: JSON.stringify(result.data)
+        })
       },
-      method: "GET",  
-      success: function (res) {
-        console.log(res.data)
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
       }
-    })
+    }
+    wx.request(options)
   },
-  // goToHome: function (e) {
-  //   wx.switchTab({
-  //     url: '/pages/home/index',
-  //   });
-  // },
   onLoad: function () {
     var that = this
     wx.setNavigationBarTitle({
