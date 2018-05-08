@@ -1,86 +1,110 @@
 /* pages/home/index.wxss */
+
 .container {
   height: 100%;
   width: 100%;
   display: inline-block;
   margin-bottom: 100rpx;
-} 
-swiper{
-  width: 100%;
-  height:450rpx;
 }
-swiper image{
+
+swiper {
+  width: 100%;
+  height: 450rpx;
+}
+
+swiper image {
   display: block;
-  width: 100%; 
+  width: 100%;
   height: 100%;
 }
-.ptList{
+
+.ptList {
   margin-top: 2px;
 }
-.productItem{
+
+.productItem {
   height: 100px;
   padding: 0 20px 0 10px;
-  border:1px solid #ccc;
+  border: 1px solid #ccc;
   margin-top: -1px;
   line-height: 1;
   vertical-align: middle;
 }
-.left image{
+
+.left image {
   width: 80px;
   height: 80px;
 }
-.productItem{
+
+.productItem {
   display: flex;
   align-items: center;
 }
-text{
+
+text {
   display: block;
 }
-.left{
+
+.left {
   float: left;
 }
-.middle{
+
+.middle {
   flex: 1;
   text-align: left;
   margin: 0 10px;
 }
-.right{
+
+.right {
   display: flex;
   float: left;
   flex-direction: column;
   align-items: center;
 }
-.right image{
-  width:30px;
+
+.right input {
+  text-align: center;
+  border: 0;
+  font-size: 24px;
+}
+
+.right image {
+  width: 30px;
   height: 30px;
 }
-.price{
+
+.price {
   display: inline-block;
   color: red !important;
 }
-.light{
+
+.light {
   font-size: 12px;
-  color:#999;
+  color: #999;
 }
-.decr{
+
+.decr {
   padding: 6px 0;
 }
-.changeNum{
-  font-family:  Courier New, Courier, monospace;
+
+.changeNum {
+  font-family: Courier New, Courier, monospace;
   font-size: 18px;
   text-align: center;
   background-color: #ccc;
   border-radius: 50%;
 }
-input{
-  width: 25px;
+
+input {
+  width: 30px;
   height: 20px;
   border: 1px solid #ccc;
   margin: 5px;
   padding-right: 2px;
   text-align: right;
 }
-.addToCar{
+
+.addToCar {
   z-index: 10;
   position: fixed;
   bottom: 0;
@@ -89,14 +113,16 @@ input{
   height: 100rpx;
   line-height: 100rpx;
   text-align: center;
-  background: #333333;
-  color:#fff;
-  padding:0 40rpx 0 50rpx;
-  box-sizing:border-box;
+  background: #333;
+  color: #fff;
+  padding: 0 40rpx 0 50rpx;
+  box-sizing: border-box;
 }
+
 .addToCar text:first-child {
-  float:left;
+  float: left;
 }
+
 .addToCar text:last-child {
-  float:right;
+  float: right;
 }

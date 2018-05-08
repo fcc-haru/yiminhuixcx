@@ -7,6 +7,9 @@ Page({
     userInfo: {}
   },
   formSubmit:function(e){
+    wx.showLoading({
+      title: '登陆中，请稍后',
+    })
     var that = this;
     var formData = e.detail.value;
     var options = {
@@ -14,6 +17,12 @@ Page({
       data: formData,
       method: "POST",
       success(result) {
+        wx.hideLoading();
+        wx.showToast({
+          title: '登陆成功',
+          icon: 'success',
+          duration: 1000
+        })
         if(result.data.msg.length>0){
           wx.switchTab({
             url: '/pages/home/index',
@@ -25,6 +34,11 @@ Page({
         })
       },
       fail(error) {
+        wx.showToast({
+          title: '登陆失败,请重新登陆',
+          icon: 'none',
+          duration: 1000
+        })
         util.showModel('请求失败', error);
         console.log('request fail', error);
       }
