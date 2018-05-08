@@ -21,20 +21,20 @@
       {
         "pagePath": "pages/home/index",
         "text": "首页",
-        "iconPath":"/images/home.png",
-        "selectedIconPath":"/images/home_sel.png"
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_sel.png"
       },
       {
         "pagePath": "pages/orderList/index",
         "text": "订单",
-        "iconPath": "/images/car.png",
-        "selectedIconPath": "/images/car_sel.png"
+        "iconPath": "images/car.png",
+        "selectedIconPath": "images/car_sel.png"
       },
       {
         "pagePath": "pages/my/index",
         "text": "我的",
-        "iconPath": "/images/my.png",
-        "selectedIconPath": "/images/my_sel.png"
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_sel.png"
       }
     ]
   }

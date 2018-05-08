@@ -1,2 +1,11 @@
 <!--pages/orderList/index.wxml-->
-<text>pages/orderList/index.wxml</text>
+<view>
+  <block wx:for="{{carList}}" wx:key="{{}}">
+    <view class="carList">
+      <image class='product_img'></image>
+      <text class='product_unit'>{{item.productName}}{{item.unitProduct}}斤装</text>
+      <text class='product_num'>{{item.num}}份</text>
+      <text class='product_total'>¥{{item.total}}</text>
+    </view>
+  </block>
+</view>

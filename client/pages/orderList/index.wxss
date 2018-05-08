@@ -1,1 +1,30 @@
 /* pages/orderList/index.wxss */
+.carList {
+  background-color: #F2F2F2;
+  margin-bottom: 10px;
+  display: flex;
+}
+.carList text {
+  display: inline-block;
+}
+.carList image {
+  width: 80px;
+  height: 80px;
+}
+.carList text {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.product_img {
+  flex:1;
+}
+.product_unit {
+  flex:3;
+}
+.product_num {
+  flex:3;
+}
+.product_total {
+  flex:3;
+}

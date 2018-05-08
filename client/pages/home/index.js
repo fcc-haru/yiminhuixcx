@@ -1,4 +1,5 @@
 // pages/home/index.js
+var config = require('../../config');
 Page({
 
   /**
@@ -15,41 +16,8 @@ Page({
     duration: 1000,
     totalPrice: 0, // 订单总价，初始为0
     hasProduct:true,// 是否添加了产品，初始为true
-    productList:[
-      {
-        url:"/images/timg.jpeg",
-        name:"米粉",
-        decr:"好吃的米粉",
-        price:"30.00",
-        num:0,
-        totalNumber:"100"
-      },
-      {
-        url: "/images/timg.jpeg",
-        name: "米粉",
-        decr: "好吃的米粉",
-        price: "30.00",
-        num: 0,
-        totalNumber: "100"
-      },
-      {
-        url: "/images/timg.jpeg",
-        name: "米粉",
-        decr: "好吃的米粉",
-        price: "30.00",
-        num: 0,
-        totalNumber: "100"
-      },
-      {
-        url: "/images/timg.jpeg",
-        name: "米粉",
-        decr: "好吃的米粉",
-        price: "30.00",
-        num: 0,
-        totalNumber: "100"
-      }
-      
-    ]
+    productList:[],
+    carList:[]
   },
   /**
  * 绑定减数量事件
@@ -95,7 +63,7 @@ Page({
     let productList = this.data.productList;                  // 获取产品列表
     let total = 0;
     for (let i = 0; i < productList.length; i++) {         // 循环列表得到每个数据                   
-      total += productList[i].num * productList[i].price;   // 所有价格加起来
+      total += productList[i].num * productList[i].productPrice;   // 所有价格加起来
     }
     this.setData({                               
       productList: productList,
@@ -107,7 +75,8 @@ Page({
 */
   getProducts() {
     let productList = this.data.productList;  
-    let products = 0;           
+    let carList = this.data.carList;   
+    let products = 0;    
     for (let i = 0; i < productList.length; i++) {                          
        products +=productList[i].num; 
     }
@@ -122,17 +91,57 @@ Page({
     }
   },
   /**
+   * 确认订单
+   */
+  confirmOrderlist(){
+    var that = this;
+    let productList = this.data.productList; 
+    that.data.carList=[]; 
+    for (let i = 0; i < productList.length; i++) {
+      if (productList[i].num > 0) {
+        that.data.carList.push(productList[i]);
+      }
+    }
+    wx.setStorage({
+      key: 'carList',
+      data: that.data.carList,
+    })
+    wx.switchTab({
+      url: '/pages/orderList/index',
+    });
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.getProducts();
+  onLoad: function () {
+    var that = this;
+    var options = {
+      url: config.service.homeUrl,
+      method: "POST",
+      success(result) {
+        var productArr = result.data.msg;
+        for (let i = 0; i < productArr.length;i++){
+          productArr[i].num = 0;
+        }
+        that.setData({
+          productList: productArr
+        })
+        that.getTotalPrice();
+        that.getProducts();
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    }
+    wx.request(options);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
