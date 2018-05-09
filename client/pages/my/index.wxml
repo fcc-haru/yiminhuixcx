@@ -1,2 +1,14 @@
 <!--pages/my/index.wxml-->
-<text>pages/my/index.wxml</text>
+<view>
+  <view class='user'>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view>
+  <view class='my_info'>
+    <view class="my_message">我的消息</view>
+    <view class="my_message">我的钱包</view>
+    <view class="my_message">店铺信息</view>
+    <view class="my_message">联系客服</view>
+  </view>
+
+</view>

@@ -17,12 +17,6 @@ Page({
       data: formData,
       method: "POST",
       success(result) {
-        wx.hideLoading();
-        wx.showToast({
-          title: '登陆成功',
-          icon: 'success',
-          duration: 1000
-        })
         if(result.data.msg.length>0){
           wx.switchTab({
             url: '/pages/home/index',

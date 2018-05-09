@@ -17,7 +17,9 @@ Page({
     totalPrice: 0, // 订单总价，初始为0
     hasProduct:true,// 是否添加了产品，初始为true
     productList:[],
-    carList:[]
+    carList:[],
+    listTime:'',
+    sendTime:''
   },
   /**
  * 绑定减数量事件
@@ -91,12 +93,57 @@ Page({
     }
   },
   /**
+   * 获取订单下单时间
+   */
+  getListTime(){
+    var timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
+    //获取当前时间  
+    var n = timestamp * 1000;
+    var date = new Date(n);
+    //年  
+    var Y = date.getFullYear();
+    //月  
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //日  
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    //时  
+    var h = date.getHours();
+    //分  
+    var m = date.getMinutes();
+    //秒  
+    var s = date.getSeconds();
+    this.setData({
+      listTime: Y + '年' + M + '月' + D + '日' 
+    })
+    //如果在五点之前，则次日送到，大于五点隔日送到
+    if(h<17){
+        D++;
+    }else{
+        D+=2;
+    }
+    this.setData({
+      sendTime: Y + '年' + M + '月' + D + '日'
+    })
+    console.log(h);
+    //console.log("当前时间：" + Y + M + D + h + ":" + m + ":" + s);  
+  },
+  /**
    * 确认订单
    */
   confirmOrderlist(){
     var that = this;
     let productList = this.data.productList; 
     that.data.carList=[]; 
+    that.getListTime();
+    wx.setStorage({
+      key: 'listTime',
+      data: that.data.listTime,
+    })
+    wx.setStorage({
+      key: 'sendTime',
+      data: that.data.sendTime,
+    })
     for (let i = 0; i < productList.length; i++) {
       if (productList[i].num > 0) {
         that.data.carList.push(productList[i]);
@@ -114,6 +161,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    wx.hideLoading();
+    wx.showToast({
+      title: '登陆成功',
+      icon: 'success',
+      duration: 1000
+    })
     var that = this;
     var options = {
       url: config.service.homeUrl,
@@ -136,7 +189,6 @@ Page({
     }
     wx.request(options);
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,11 +1,26 @@
 <!--pages/orderList/index.wxml-->
 <view>
+  <text class='list_time'>{{listTime}}</text>
   <block wx:for="{{carList}}" wx:key="{{}}">
     <view class="carList">
-      <image class='product_img'></image>
+      <image class='product_img' src="{{item.imageUrl}}"></image>
       <text class='product_unit'>{{item.productName}}{{item.unitProduct}}斤装</text>
       <text class='product_num'>{{item.num}}份</text>
       <text class='product_total'>¥{{item.total}}</text>
     </view>
   </block>
+  <view class="in_total">
+    <text>合计:¥ {{inTotal}}</text>
+  </view>
+  <view class='send_time'>
+    <text>送货时间：{{sendTime}}</text>
+    <text>温馨提示： 本店当日17:00前下单，次日送达；17:00之后下单,隔日送货</text>
+  </view>
+  <view class='send_place'>
+    <text>送货地点：{{textData.name}}{{textData.desc}}</text>
+    <text>温馨提示： 本店当日17:00前下单，次日送达；17:00之后下单,隔日送货</text>
+  </view>
+  <view class=' confirmOrderlist'>
+    <text bindtap='confirmOrderlist'>确认订单</text>
+  </view>
 </view>

@@ -1,6 +1,6 @@
 /* pages/login/login.wxss */
 .userInfo{
-  padding: 50px 0;
+  padding: 100rpx 0;
 }
 input{
   display: inline-block;
@@ -9,18 +9,18 @@ input{
   display: flex;
   flex-direction:  row;
   align-items: center;
-  padding: 15px 0;
+  padding: 30rpx 0;
   line-height: 1;
 }
 input{
-  border:1px solid #ccc;
-  border-radius: 4px;
-  padding-left: 4px;
+  border:2rpx solid #ccc;
+  border-radius: 8rpx;
+  padding-left: 8rpx;
 }
 .letter{
   letter-spacing: 1em;
 }
 
 button{
-  margin-top:50px;
+  margin-top:100rpx;
 }
