@@ -9,7 +9,7 @@ Page({
     num:1,
     minustatus:"disabled",
     plusStatus:"normal",
-    imgUrls: ["/images/timg.jpeg"],
+    imgUrls: ["/images/hyk.png"],
     indicatorDots: true,
     autoplay: false,
     interval: 5000,

@@ -16,6 +16,7 @@ const { auth: { authorizationMiddleware, validationMiddleware } } = require('../
 
 router.post('/login', controllers.login)
 router.post('/home', controllers.home)
+router.post('/address', controllers.address)
 // 用户信息接口（可以用来验证登录态）
 router.get('/user', validationMiddleware, controllers.user)
 

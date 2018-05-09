@@ -1,8 +1,8 @@
 const { mysql } = require('../qcloud')
 // 登录授权接口
 module.exports = async function (ctx) {
-
-  var data = await mysql("productMaster").select("*");
+  var userId = ctx.request.body.userId;
+  var data = await mysql("customerMaster").where({ userId: userId, updateDate:"new"});
 
   ctx.response.body = {
     msg: data

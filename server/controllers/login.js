@@ -5,7 +5,7 @@ module.exports = async function (ctx) {
   var pwd = ctx.request.body.pwd || "";
   var data = await mysql("userMaster").where({ telNumber: tel, possword: pwd });
 
-  ctx.body = {
+  ctx.response.body = {
     msg: data
   }
 }

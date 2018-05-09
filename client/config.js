@@ -17,6 +17,8 @@ var config = {
         // 测试的请求地址，用于测试会话
         homeUrl: `${host}/weapp/home`,
 
+        addressUrl: `${host}/weapp/address`,
+
         // 测试的信道服务地址
         tunnelUrl: `${host}/weapp/tunnel`,
 
