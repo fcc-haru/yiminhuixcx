@@ -20,7 +20,6 @@
 
 .my_info view {
   background-color: #f7f7f7;
-  border-radius: 30rpx;
   padding: 40rpx 60rpx;
   margin-top: 20rpx;
 }

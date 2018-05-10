@@ -18,7 +18,7 @@
   </view>
   <view class='send_place'>
     <text>送货地点：{{textData.name}}{{textData.desc}}</text>
-    <text>温馨提示： 本店当日17:00前下单，次日送达；17:00之后下单,隔日送货</text>
+    <text>{{address}}</text>
   </view>
   <view class="same_order">
     <checkbox color="black" checked="true"><text>每日生成相同订单，省时又省力！</text></checkbox> 

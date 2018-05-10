@@ -16,7 +16,8 @@ Page({
     markers: [],
     latitude: '',
     longitude: '',
-    userId: ''
+    userId: '',
+    address:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -88,11 +89,11 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
-        console.log(res.data[0].userId);
+        console.log("userInfo"+res.data[0].userId);
         that.setData({
           userId: res.data[0].userId
         })
-        let userId = { userId: that.data.userId }
+        let userId = { "userId": that.data.userId }
         console.log(userId);
         var options = {
           url: config.service.addressUrl,
@@ -102,7 +103,10 @@ Page({
           },
           data: userId,
           success(result) {
-            console.log(result.data);
+            that.setData({
+              address: result.data.msg[0].address
+            })
+            console.log(result.data.msg[0]);
           },
           fail(error) {
             util.showModel('请求失败', error);
@@ -130,6 +134,9 @@ Page({
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
+          wx.switchTab({
+            url: '/pages/my/my',
+          })
         }
       }
     })
