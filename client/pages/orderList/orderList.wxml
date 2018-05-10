@@ -1,0 +1,29 @@
+<!--pages/orderList/index.wxml-->
+<view>
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">待派送订单</view>
+    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">已派送订单 </view>
+    <view class="goods-content">
+      <view wx:if="{{curIndex === 0}}">
+        <text class='list_time'>{{listTime}}</text>
+        <block wx:for="{{carList}}" wx:key="{{}}">
+          <view class="carList">
+            <image class='product_img' src="{{item.imageUrl}}"></image>
+            <text class='product_unit'>{{item.productName}}{{item.unitProduct}}斤装</text>
+            <text class='product_num'>{{item.num}}份</text>
+            <text class='product_total'>¥{{item.total}}</text>
+          </view>
+        </block>
+        <view class="in_total">
+          <text>合计:¥ {{inTotal}}</text>
+        </view>
+
+        <view class="confirmOrderlist" style='background:{{modifyOrder}}'>
+          <text bindtap='{{modifyFun}}'>修改订单</text>
+        </view>
+      </view>
+      <view wx:if="{{curIndex === 1}}">已派送订单</view>
+    </view>
+  </view>
+
+</view>

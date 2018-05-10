@@ -1,0 +1,106 @@
+/* pages/orderList/index.wxss */
+
+.list_time {
+  padding: 0 30rpx;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.carList {
+  background-color: #f2f2f2;
+  margin-top: 20rpx;
+  display: flex;
+  border-radius: 30rpx;
+  padding: 20rpx;
+}
+
+.carList text {
+  font-size: 14px;
+}
+
+.carList image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.carList text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product_img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.product_unit {
+  flex: 3;
+}
+
+.product_num {
+  flex: 3;
+}
+
+.product_total {
+  flex: 2;
+  font-weight: bold;
+}
+
+.in_total {
+  margin-top: 20rpx;
+  text-align: right;
+  padding-right: 30rpx;
+}
+
+.in_total text {
+  font-weight: bold;
+}
+.send_time,.send_place {
+  background-color: #D7D7D7;
+  padding:30rpx;
+  margin-top: 20rpx;
+}
+.send_place {
+  margin-bottom: 150rpx;
+}
+.send_time text,.send_place text {
+  display: block;
+}
+.send_time text:first-child,.send_place text:first-child{
+  font-size: 16px;
+  font-weight:bold;
+}
+.send_time text:last-child,.send_place text:last-child{
+  margin-top:40rpx;
+  font-size: 8px;
+}
+.confirmOrderlist {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  padding: 0 40rpx 0 50rpx;
+  box-sizing: border-box;
+}
+.goods-tab-nav{
+    display: inline-block;
+    width: 50%;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #ededed;
+    box-sizing: border-box;
+    text-align: center;
+    color: #c7c7cb;
+}
+.goods-tab-nav.on{
+    color: #bcaa8a;
+    border-bottom: 5rpx solid #bcaa8a;
+}
+
+

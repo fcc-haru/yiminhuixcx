@@ -1,4 +1,4 @@
-/* pages/orderList/index.wxss */
+/* pages/orderDetails/orderDetails.wxss */
 
 .list_time {
   padding: 0 30rpx;
@@ -56,22 +56,27 @@
 .in_total text {
   font-weight: bold;
 }
-.send_time,.send_place {
-  background-color: #D7D7D7;
-  padding:30rpx;
+
+.send_time, .send_place {
+  background-color: #d7d7d7;
+  padding: 30rpx;
   margin-top: 20rpx;
 }
-.send_time text,.send_place text {
+
+.send_time text, .send_place text {
   display: block;
 }
-.send_time text:first-child,.send_place text:first-child{
+
+.send_time text:first-child, .send_place text:first-child {
   font-size: 16px;
-  font-weight:bold;
+  font-weight: bold;
 }
-.send_time text:last-child,.send_place text:last-child{
-  margin-top:40rpx;
+
+.send_time text:last-child, .send_place text:last-child {
+  margin-top: 40rpx;
   font-size: 8px;
 }
+
 .confirmOrderlist {
   z-index: 10;
   position: fixed;
@@ -87,4 +92,7 @@
   box-sizing: border-box;
 }
 
-
+.same_order {
+  font-size: 14px;
+  margin: 20rpx 20rpx 150rpx 20rpx;
+}

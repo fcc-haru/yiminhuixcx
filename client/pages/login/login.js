@@ -7,9 +7,6 @@ Page({
     userInfo: {}
   },
   formSubmit:function(e){
-    wx.showLoading({
-      title: '登陆中，请稍后',
-    })
     var that = this;
     var formData = e.detail.value;
     var options = {
@@ -17,12 +14,19 @@ Page({
       data: formData,
       method: "POST",
       success(result) {
+        wx.showLoading({
+          title: '登陆中，请稍后',
+        })
         if(result.data.msg.length>0){
           wx.switchTab({
-            url: '/pages/home/index',
+            url: '/pages/home/home',
           });
         }
         console.log(result.data)
+        wx.setStorage({
+          key: 'userInfo',
+          data: result.data.msg,
+        })
         that.setData({
           requestResult: JSON.stringify(result.data)
         })
@@ -54,21 +58,6 @@ Page({
 
   },
   onReady: function () {
-    var that = this;
-    setTimeout(function () {
-      that.setData({
-        remind: ''
-      });
-    }, 1000);
-    wx.onAccelerometerChange(function (res) {
-      var angle = -(res.x * 30).toFixed(1);
-      if (angle > 14) { angle = 14; }
-      else if (angle < -14) { angle = -14; }
-      if (that.data.angle !== angle) {
-        that.setData({
-          angle: angle
-        });
-      }
-    });
+
   }
 });

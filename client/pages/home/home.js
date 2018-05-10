@@ -153,9 +153,9 @@ Page({
       key: 'carList',
       data: that.data.carList,
     })
-    wx.switchTab({
-      url: '/pages/orderList/index',
-    });
+    wx.navigateTo({
+      url: '/pages/orderDetails/orderDetails',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

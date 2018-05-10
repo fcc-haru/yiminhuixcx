@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/home/index",
-    "pages/orderList/index",
-    "pages/my/index"
+    "pages/home/home",
+    "pages/orderList/orderList",
+    "pages/my/my",
+    "pages/orderDetails/orderDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,19 +20,19 @@
     "box-shadow": "0 0 6px 0",
     "list": [
       {
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home_sel.png"
       },
       {
-        "pagePath": "pages/orderList/index",
+        "pagePath": "pages/orderList/orderList",
         "text": "订单",
         "iconPath": "images/car.png",
         "selectedIconPath": "images/car_sel.png"
       },
       {
-        "pagePath": "pages/my/index",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/my.png",
         "selectedIconPath": "images/my_sel.png"
