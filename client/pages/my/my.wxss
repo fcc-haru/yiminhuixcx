@@ -23,3 +23,11 @@
   padding: 40rpx 60rpx;
   margin-top: 20rpx;
 }
+.my_info text {
+  margin-left: 20rpx;
+}
+.my_info image {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}

@@ -125,7 +125,6 @@ Page({
     this.setData({
       sendTime: Y + '年' + M + '月' + D + '日'
     })
-    console.log(h);
     //console.log("当前时间：" + Y + M + D + h + ":" + m + ":" + s);  
   },
   /**
@@ -162,10 +161,11 @@ Page({
    */
   onLoad: function () {
     wx.hideLoading();
-    wx.showToast({
-      title: '登陆成功',
-      icon: 'success',
-      duration: 1000
+    wx.showModal({
+      title: '',
+      content: '尊敬的会员，欢迎来到亿民惠!',
+      showCancel:false,
+      confirmText:'好的'
     })
     var that = this;
     var options = {

@@ -1,6 +1,13 @@
 /* pages/login/login.wxss */
+.login {
+  padding:0 80rpx;
+}
 .userInfo{
   padding: 100rpx 0;
+}
+.userMotto {
+  padding-left:8rpx;
+  font-size: 16px;
 }
 input{
   display: inline-block;
@@ -13,9 +20,11 @@ input{
   line-height: 1;
 }
 input{
-  border:2rpx solid #ccc;
+  border:0;
+  border-bottom:2rpx solid #ccc;
   border-radius: 8rpx;
-  padding-left: 8rpx;
+  padding:10rpx 8rpx;
+  width:100%;
 }
 .letter{
   letter-spacing: 1em;
@@ -23,4 +32,18 @@ input{
 
 button{
   margin-top:100rpx;
+}
+.MembershipId {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  padding: 0 40rpx 0 50rpx;
+  box-sizing: border-box;
 }

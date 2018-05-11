@@ -1,0 +1,5 @@
+<view>
+ <input type='text' placeholder='请输入充值金额'  placeholder-class="phcolor" />
+ <text>注意：充值金额仅用于亿敏惠食品有限公司消费，不可体现</text>
+ <view class="confirmRecharge">确认充值</view>
+</view>
