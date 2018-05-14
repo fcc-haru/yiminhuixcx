@@ -17,7 +17,7 @@ Page({
     latitude: '',
     longitude: '',
     userId: '',
-    address:''
+    customerInfo:[]
   },
   /**
    * 生命周期函数--监听页面加载
@@ -89,12 +89,10 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
-        console.log("userInfo"+res.data[0].userId);
         that.setData({
           userId: res.data[0].userId
         })
         let userId = { "userId": that.data.userId }
-        console.log(userId);
         var options = {
           url: config.service.addressUrl,
           method: "POST",
@@ -104,7 +102,7 @@ Page({
           data: userId,
           success(result) {
             that.setData({
-              address: result.data.msg[0].address
+              customerInfo: result.data.msg[0]
             })
             console.log(result.data.msg[0]);
           },
@@ -129,13 +127,12 @@ Page({
       content: '是否每日生成相同订单',
       success: function (res) {
         if (res.confirm) {
-          wx.switchTab({
-            url: '/pages/my/my',
+          wx.navigateTo({
+            url: '/pages/accountRecharge/accountRecharge',
           })
         } else if (res.cancel) {
-          console.log('用户点击取消')
-          wx.switchTab({
-            url: '/pages/my/my',
+          wx.navigateTo({
+            url: '/pages/accountRecharge/accountRecharge',
           })
         }
       }

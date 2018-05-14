@@ -71,9 +71,10 @@
   font-size: 16px;
   font-weight: bold;
 }
-
-.send_time text:last-child, .send_place text:last-child {
-  margin-top: 40rpx;
+.send_time text:last-child,.send_place text:nth-child(2) {
+  margin-top: 35rpx;
+}
+.send_time text:last-child, .send_place text:nth-child(n+1) {
   font-size: 8px;
 }
 

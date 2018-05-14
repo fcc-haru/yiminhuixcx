@@ -3,12 +3,14 @@
     "pages/login/login",
     "pages/home/home",
     "pages/orderList/orderList",
+    "pages/orderDetails/orderDetails",
     "pages/my/my",
-    "pages/orderDetails/orderDetails"
+    "pages/myWallet/myWallet",
+    "pages/accountRecharge/accountRecharge"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "亿民惠",
     "navigationBarTextStyle": "black"
   },

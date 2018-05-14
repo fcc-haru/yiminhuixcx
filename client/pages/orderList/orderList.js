@@ -95,7 +95,6 @@ Page({
           userId: res.data[0].userId
         })
         let userId = { userId: that.data.userId }
-        console.log(userId);
         var options = {
           url: config.service.addressUrl,
           method: "POST",

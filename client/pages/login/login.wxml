@@ -1,17 +1,16 @@
 <!--pages/login/login.wxml-->
-<view class="container">
+<view class="login">
   <view class='userInfo'>
-    <text class="userMotto">欢迎登陆yiminhui</text>  
+    <text class="userMotto">请进行亿民惠会员认证：</text>  
   </view>
   <form bindsubmit="formSubmit">
     <view class='item'>
-      <text>手机号：</text>
-      <input type='number' name="tel" placeholder='请输入手机号' value="13238098327"></input>
+      <input type='number' name="tel" placeholder='请输入您的电话号码' value="13238098327"></input>
     </view>
     <view class='item'>
-      <text class='letter'>密</text><text >码：</text>
       <input type='text' password name="pwd" placeholder='请输入密码'></input>
     </view>
-    <button formType="submit">提交</button>
+    <button class="MembershipId" formType="submit">会员认证</button>
   </form>
+   
 </view>

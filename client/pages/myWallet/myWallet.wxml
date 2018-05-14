@@ -1,0 +1,7 @@
+<!--pages/myWallet/myWallet.wxml-->
+<view>
+  <text>账户余额</text>
+  <text>¥ {{accountBalance}}</text>
+  <text>查看账户明细</text>
+  <view class="Recharge">充值</view>
+</view>
