@@ -161,12 +161,28 @@ Page({
    */
   onLoad: function () {
     wx.hideLoading();
-    wx.showModal({
-      title: '',
-      content: '尊敬的会员，欢迎来到亿民惠!',
-      showCancel:false,
-      confirmText:'好的'
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        console.log(res)
+        if(res.data.msg === "Success"){
+          wx.showModal({
+            title: '登陆成功',
+            content: '尊敬的会员，欢迎来到亿民惠!',
+            showCancel: false,
+            confirmText: '好的'
+          })
+        } else if (res.data.msg === "User not found"){
+          wx.showModal({
+            title: '登陆失败',
+            content: ' 很抱歉，您暂不是亿民惠会员，我们的工作人员会尽快与你联系，谢谢!',
+            showCancel: false,
+            confirmText: '好的'
+          })
+        }
+      }
     })
+    
     var that = this;
     var options = {
       url: config.service.homeUrl,
