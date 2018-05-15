@@ -1,0 +1,11 @@
+<view>
+  <view class="modifySuccess"  hidden='{{modifySuccess}}' >
+    <image src='../../images/tips_success.png'></image>
+    <text>您的订单已修改成功，坐等收货吧！</text>
+  </view>
+
+  <view class="confirmSuccess"  hidden='{{confirmSuccess}}'>
+    <image src='../../images/tips_success.png'></image>
+    <text>您的订单已生成，坐等收货吧！</text>
+  </view>
+</view>

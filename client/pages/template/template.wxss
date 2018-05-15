@@ -1,0 +1,10 @@
+.modifySuccess image,.confirmSuccess image {
+  display: block;
+  margin: 200rpx auto 0 auto;
+  width: 300rpx;
+  height: 300rpx;
+}
+.modifySuccess text,.confirmSuccess text {
+  display: block;
+  text-align: center;
+}

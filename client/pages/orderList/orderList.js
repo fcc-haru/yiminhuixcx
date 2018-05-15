@@ -90,9 +90,9 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
-        console.log(res.data[0].userId);
+        console.log(res.data.data[0].userId);
         that.setData({
-          userId: res.data[0].userId
+          userId: res.data.data[0].userId
         })
         let userId = { userId: that.data.userId }
         var options = {
@@ -149,6 +149,10 @@ Page({
     }
   },
   canmodify(){
+    wx.setStorage({
+      key: 'modifyButton',
+      data: '确认修改',
+    })
     wx.switchTab({
       url: '/pages/home/home',
     })

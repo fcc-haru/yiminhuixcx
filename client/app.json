@@ -6,7 +6,8 @@
     "pages/orderDetails/orderDetails",
     "pages/my/my",
     "pages/myWallet/myWallet",
-    "pages/accountRecharge/accountRecharge"
+    "pages/accountRecharge/accountRecharge",
+    "pages/template/template"
   ],
   "window": {
     "backgroundTextStyle": "light",
