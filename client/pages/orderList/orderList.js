@@ -8,6 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabslist: ["待派送订单", "已派送订单"],
+    currentTab: 0, //预设当前项的值
+    winHeight: "",//窗口高度
+    currentTab: 0, //预设当前项的值
+    scrollLeft: 0, //tab标题的滚动条位置
     carList: [], //订单列表
     listTime: '',//下单时间
     sendTime: '',//送货时间
@@ -19,14 +24,44 @@ Page({
     modifyOrder:'', //是否能修改订单
     modifyFun:''  //根据是否能修改订单决定点击的方法名
   },
+  // 滚动切换标签样式
+  switchTab: function (e) {
+    this.setData({
+      currentTab: e.detail.current
+    });
+  },
+  // 点击标题切换当前页时改变样式
+  swichNav: function (e) {
+    var cur = e.target.dataset.current;
+    if (this.data.currentTaB == cur) { return false; }
+    else {
+      this.setData({
+        currentTab: cur
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     this.modifyOrderlist();
     wx.setNavigationBarTitle({
       title: "订单详情"
     })
+    //  高度自适应
+    wx.getSystemInfo({
+      success: function (res) {
+        var clientHeight = res.windowHeight,
+          clientWidth = res.windowWidth,
+          rpxR = 750 / clientWidth;
+        //减去的80rpx为header和line还有tab栏的高度，如果此高度计算不准确会造成页面多出一个纵向滚动条
+        var calc = clientHeight * rpxR - 80;
+        that.setData({
+          winHeight: calc,
+        });
+      }
+    });
   },
   showMarkerInfo: function (data, i) {
     var that = this;
@@ -90,9 +125,9 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
-        console.log(res.data[0].userId);
+        console.log(res.data.data[0].userId);
         that.setData({
-          userId: res.data[0].userId
+          userId: res.data.data[0].userId
         })
         let userId = { userId: that.data.userId }
         var options = {
@@ -149,6 +184,10 @@ Page({
     }
   },
   canmodify(){
+    wx.setStorage({
+      key: 'modifyButton',
+      data: '确认修改',
+    })
     wx.switchTab({
       url: '/pages/home/home',
     })

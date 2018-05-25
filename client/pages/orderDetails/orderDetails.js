@@ -17,12 +17,17 @@ Page({
     latitude: '',
     longitude: '',
     userId: '',
-    customerInfo:[]
+    customerInfo:[],
+    buttonText:'确认订单'
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    this.setData({
+      buttonText:options.buttonText
+    })
     wx.setNavigationBarTitle({
       title: "订单详情"
     })
@@ -120,23 +125,30 @@ Page({
    * 确认订单
    */
   confirmOrderlist:function(){
-    wx.showModal({
-      title: '提示',
-      cancelText: '再想想',
-      confirmText: '去充值',
-      content: '是否每日生成相同订单',
-      success: function (res) {
-        if (res.confirm) {
-          wx.navigateTo({
-            url: '/pages/accountRecharge/accountRecharge',
-          })
-        } else if (res.cancel) {
-          wx.navigateTo({
-            url: '/pages/accountRecharge/accountRecharge',
-          })
+    if(this.data.buttonText=='确认订单'){
+      wx.showModal({
+        title: '提示',
+        cancelText: '再想想',
+        confirmText: '去充值',
+        content: '是否每日生成相同订单',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/accountRecharge/accountRecharge',
+            })
+          } else if (res.cancel) {
+            wx.navigateTo({
+              url: '/pages/accountRecharge/accountRecharge',
+            })
+          }
         }
-      }
-    })
+      })
+    } else if (this.data.buttonText == '确认修改'){
+      wx.navigateTo({
+        url: '/pages/template/template?modifySuccess=true',
+      })
+    }
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,0 +1,19 @@
+<view>
+  <view class="modifySuccess"  wx:if='{{modifySuccess}}' >
+    <image src='../../images/tips_success.png'></image>
+    <text>您的订单已修改成功，坐等收货吧！</text>
+  </view>
+
+  <view class="confirmSuccess"  wx:if='{{confirmSuccess}}'>
+    <image src='../../images/tips_success.png'></image>
+    <text>您的订单已生成，坐等收货吧！</text>
+  </view>
+  <view class="rechargeSuccess" wx:if='{{rechargeSuccess}}'>
+    <image src='../../images/tips_success.png'></image>
+    <text>充值成功！</text>
+    <view class="viewlist" bindtap='viewList'>
+    <text>查看订单</text>
+    </view>
+  </view>
+  
+</view>

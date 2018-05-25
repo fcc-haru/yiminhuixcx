@@ -29,6 +29,6 @@
   </view>
   <view class='addToCar' hidden="{{hasProduct}}">
     <text>¥{{totalPrice}}</text>
-    <text bindtap='confirmOrderlist'>确认订单</text>
+    <text bindtap='confirmOrderlist'>{{buttonText}}</text>
   </view> 
 </view>

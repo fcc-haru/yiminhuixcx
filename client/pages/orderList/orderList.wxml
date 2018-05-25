@@ -1,11 +1,15 @@
 <!--pages/orderList/index.wxml-->
 <view>
-  <view class="goods-tab-box">
-    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">待派送订单</view>
-    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">已派送订单 </view>
-    <view class="goods-content">
-      <view wx:if="{{curIndex === 0}}">
-        <text class='list_time'>{{listTime}}</text>
+ <scroll-view scroll-x="true" scroll-y="false" class="tab-h" scroll-left="{{scrollLeft}}">
+    <block class="item-content" wx:for="{{tabslist}}" wx:key="index">
+      <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}} </view>
+    </block>
+  </scroll-view>
+   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view>
+            <text class='list_time'>{{listTime}}</text>
         <block wx:for="{{carList}}" wx:key="{{}}">
           <view class="carList">
             <image class='product_img' src="{{item.imageUrl}}"></image>
@@ -21,9 +25,25 @@
         <view class="confirmOrderlist" style='background:{{modifyOrder}}'>
           <text bindtap='{{modifyFun}}'>修改订单</text>
         </view>
-      </view>
-      <view wx:if="{{curIndex === 1}}">已派送订单</view>
-    </view>
-  </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+     <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+          <view class="send_an_order">
+            <view class="send_an_time">{{sendTime}}</view>
+            <view class="send_in_total">¥{{inTotal}}</view> 
+            <view class="payment_status"> <image src='../../images/check.png'></image> </view> 
+          </view>
+          <view class="send_an_order">
+            <view class="send_an_time">{{sendTime}}</view>
+            <view class="send_in_total">¥{{inTotal}}</view> 
+            <view class="payment_status"> <image src='../../images/mark.png'></image></view> 
+          </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  
+  
 
 </view>
