@@ -90,7 +90,7 @@ Page({
       key: 'userInfo',
       success: function (res) {
         that.setData({
-          userId: res.data[0].userId
+          userId: res.data.data[0].userId
         })
         let userId = { "userId": that.data.userId }
         var options = {
