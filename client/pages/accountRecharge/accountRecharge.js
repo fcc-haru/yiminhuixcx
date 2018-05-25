@@ -6,7 +6,11 @@ Page({
   data: {
     
   },
-
+  confirmRecharge(){
+    wx.navigateTo({
+      url: '/pages/template/template?rechargeSuccess=true',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

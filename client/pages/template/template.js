@@ -5,23 +5,55 @@ Page({
    */
   data: {
     modifySuccess:false,
-    confirmSuccess:false
+    confirmSuccess:false,
+    rechargeSuccess: false
   },
-
+  viewList(){
+    wx.navigateBack({
+      delta:2
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      confirmSuccess: options.modifySuccess
-    })
+    console.log(options);
+    if (options.modifySuccess){
+      this.setData({
+        modifySuccess: options.modifySuccess,
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 2
+        })
+      }, 1000);
+    }
+    if (options.confirmSuccess) {
+      this.setData({
+        confirmSuccess: options.confirmSuccess,
+      })
+      setTimeout(function(){
+        wx.navigateBack({
+          delta: 2
+        })
+      },1000);
+    }
+    if (options.rechargeSuccess) {
+      this.setData({
+        rechargeSuccess: options.rechargeSuccess,
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    // setTimeout(function () {
+    //   wx.navigateBack({
+    //     delta: 2
+    //   })
+    // }, 1000)
   },
 
   /**
