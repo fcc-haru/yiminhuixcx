@@ -1,0 +1,25 @@
+.modifySuccess image,.confirmSuccess image,.rechargeSuccess image {
+  display: block;
+  margin: 200rpx auto 0 auto;
+  width: 300rpx;
+  height: 300rpx;
+}
+.modifySuccess text,.confirmSuccess text,.rechargeSuccess text {
+  display: block;
+  text-align: center;
+}
+
+.viewlist {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  padding: 0 40rpx 0 50rpx;
+  box-sizing: border-box;
+}

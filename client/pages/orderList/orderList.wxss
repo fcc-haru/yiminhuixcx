@@ -56,25 +56,31 @@
 .in_total text {
   font-weight: bold;
 }
-.send_time,.send_place {
-  background-color: #D7D7D7;
-  padding:30rpx;
+
+.send_time, .send_place {
+  background-color: #d7d7d7;
+  padding: 30rpx;
   margin-top: 20rpx;
 }
+
 .send_place {
   margin-bottom: 150rpx;
 }
-.send_time text,.send_place text {
+
+.send_time text, .send_place text {
   display: block;
 }
-.send_time text:first-child,.send_place text:first-child{
+
+.send_time text:first-child, .send_place text:first-child {
   font-size: 16px;
-  font-weight:bold;
+  font-weight: bold;
 }
-.send_time text:last-child,.send_place text:last-child{
-  margin-top:40rpx;
+
+.send_time text:last-child, .send_place text:last-child {
+  margin-top: 40rpx;
   font-size: 8px;
 }
+
 .confirmOrderlist {
   z-index: 10;
   position: fixed;
@@ -88,19 +94,75 @@
   padding: 0 40rpx 0 50rpx;
   box-sizing: border-box;
 }
-.goods-tab-nav{
-    display: inline-block;
-    width: 50%;
-    height: 90rpx;
-    line-height: 90rpx;
-    border-bottom: 1rpx solid #ededed;
-    box-sizing: border-box;
-    text-align: center;
-    color: #c7c7cb;
-}
-.goods-tab-nav.on{
-    color: #bcaa8a;
-    border-bottom: 5rpx solid #bcaa8a;
+
+.goods-tab-nav {
+  display: inline-block;
+  width: 50%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #ededed;
+  box-sizing: border-box;
+  text-align: center;
+  color: #c7c7cb;
 }
 
+.goods-tab-nav.on {
+  color: #bcaa8a;
+  border-bottom: 5rpx solid #bcaa8a;
+}
 
+.tab-item {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  background: #f2f2f2;
+  color: #737373;
+}
+
+.tab-item.active {
+  color: #333;
+  font-weight: bold;
+  position: relative;
+  background: #d7d7d7;
+}
+
+.tab-h {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #fff;
+  font-size: 16px;
+  white-space: nowrap;
+  z-index: 99;
+}
+
+.send_an_order:first-child {
+  margin-top: 40rpx;
+}
+
+.send_an_order {
+  display: flex;
+  background: #f2f2f2;
+  margin-bottom: 20rpx;
+  padding: 22rpx;
+  font-size: 14px;
+}
+
+.send_an_time {
+  flex: 7;
+}
+
+.send_in_total {
+  flex: 1;
+}
+
+.payment_status {
+  flex: 1;
+  text-align:right;
+}
+.payment_status>image {
+  width:30rpx;
+  height:30rpx;
+}

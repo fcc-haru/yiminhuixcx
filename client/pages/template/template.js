@@ -4,27 +4,56 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    modifySuccess:false,
+    confirmSuccess:false,
+    rechargeSuccess: false
   },
-  confirmRecharge(){
-    wx.navigateTo({
-      url: '/pages/template/template?rechargeSuccess=true',
+  viewList(){
+    wx.navigateBack({
+      delta:2
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '账户充值',
-    })
+    console.log(options);
+    if (options.modifySuccess){
+      this.setData({
+        modifySuccess: options.modifySuccess,
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 2
+        })
+      }, 1000);
+    }
+    if (options.confirmSuccess) {
+      this.setData({
+        confirmSuccess: options.confirmSuccess,
+      })
+      setTimeout(function(){
+        wx.navigateBack({
+          delta: 2
+        })
+      },1000);
+    }
+    if (options.rechargeSuccess) {
+      this.setData({
+        rechargeSuccess: options.rechargeSuccess,
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    // setTimeout(function () {
+    //   wx.navigateBack({
+    //     delta: 2
+    //   })
+    // }, 1000)
   },
 
   /**

@@ -19,7 +19,8 @@ Page({
     productList:[],
     carList:[],
     listTime:'',
-    sendTime:''
+    sendTime:'',
+    buttonText:''
   },
   /**
  * 绑定减数量事件
@@ -152,14 +153,26 @@ Page({
       key: 'carList',
       data: that.data.carList,
     })
-    wx.navigateTo({
-      url: '/pages/orderDetails/orderDetails',
-    })
+    if(that.data.buttonText=='确认订单'){
+      wx.navigateTo({
+        url: '/pages/orderDetails/orderDetails?buttonText=确认订单',
+      })
+    } else if (that.data.buttonText == '确认修改') {
+      wx.navigateTo({
+        url: '/pages/orderDetails/orderDetails?buttonText=确认修改',
+      })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    var that = this;
+    wx.setStorage({
+      key: 'modifyButton',
+      data: '确认订单',
+    })
     wx.hideLoading();
     wx.getStorage({
       key: 'userInfo',
@@ -183,7 +196,6 @@ Page({
       }
     })
     
-    var that = this;
     var options = {
       url: config.service.homeUrl,
       method: "POST",
@@ -216,7 +228,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this;
+    wx.getStorage({
+      key: 'modifyButton',
+      success: function (res) {
+        that.setData({
+          buttonText: res.data
+        })
+      },
+    })
   },
 
   /**

@@ -26,6 +26,6 @@
     <checkbox color="black" checked="true"><text>每日生成相同订单，省时又省力！</text></checkbox> 
   </view>
   <view class=' confirmOrderlist'>
-    <text bindtap='confirmOrderlist'>确认订单</text>
+    <text bindtap='confirmOrderlist'>{{buttonText}}</text>
   </view>
 </view>
